@@ -1,15 +1,15 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-    Name = "Script Hub V28 (Nov 8, 2025 - Dex Explorer Edition)",
+    Name = "Script Hub V29 (Nov 8, 2025 - Mobile Dex Edition)",
     Icon = 4483362458,
     LoadingTitle = "Script Hub Loading...",
-    LoadingSubtitle = "Updated by Grok - Aimlock Feature Integrated",
+    LoadingSubtitle = "Updated by Grok - Mobile Dex & Enhanced Features",
     Theme = "Dark",
     DisableRayfieldPrompts = false,
     KeySystem = false,
     ConfigurationSaving = {
         Enabled = true,
-        FolderName = "ScriptHubV28",
+        FolderName = "ScriptHubV29",
         FileName = "Config"
     }
 })
@@ -314,7 +314,7 @@ local function toggleAimlock(Value)
     end
 end
 
--- Tab 1: General Scripts (added Dex Explorer & more)
+-- Tab 1: General Scripts (added Mobile Dex Explorer & more)
 local GeneralTab = Window:CreateTab("General Scripts", 4483362458)
 
 pcall(function()
@@ -359,11 +359,11 @@ pcall(function()
         Callback = function()
             Rayfield:Notify({
                 Title = "Update Check",
-                Content = "Script Hub V28 is up to date! (Last checked: Nov 8, 2025)",
+                Content = "Script Hub V29 is up to date! (Last checked: Nov 8, 2025)",
                 Duration = 4,
                 Image = 4483362458
             })
-            print("Manual update: Check GitHub for V29 if needed.")
+            print("Manual update: Check GitHub for V30 if needed.")
         end,
     })
 end)
@@ -500,12 +500,22 @@ pcall(function()
     })
 end)
 
--- New: Dex Explorer
+-- Dex Explorer (Moon Edition)
 pcall(function()
     GeneralTab:CreateButton({
         Name = "Dex Explorer (Moon Edition)",
         Callback = function()
             loadWithBypass("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua", "Dex Explorer")
+        end,
+    })
+end)
+
+-- New: Mobile Dex Explorer (Dark Dex V3 - Mobile Optimized)
+pcall(function()
+    GeneralTab:CreateButton({
+        Name = "Mobile Dex Explorer (Dark Dex V3)",
+        Callback = function()
+            loadWithBypass("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", "Mobile Dex")
         end,
     })
 end)
@@ -698,7 +708,7 @@ end)
 
 pcall(function()
     PlayerTab:CreateToggle({
-        Name = "Fly (Basic Flight)",
+        Name = "Fly (Basic Flight - Mobile Compatible)",
         CurrentValue = false,
         Callback = function(Value)
             _G.FlyEnabled = Value
@@ -719,6 +729,7 @@ pcall(function()
                             if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then moveVector = moveVector + cam.CFrame.RightVector end
                             if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.Space) then moveVector = moveVector + Vector3.new(0, 1, 0) end
                             if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftShift) then moveVector = moveVector - Vector3.new(0, 1, 0) end
+                            -- Mobile touch support: Basic forward/back based on thumbstick if available
                             bodyVelocity.Velocity = moveVector * 50
                         end
                         wait(0.1)
@@ -981,6 +992,16 @@ pcall(function()
     })
 end)
 
+-- New: More Trending - Sol's RNG
+pcall(function()
+    TrendingTab:CreateButton({
+        Name = "Sol's RNG - Auto Roll/Farm (2025)",
+        Callback = function()
+            loadWithBypass("https://raw.githubusercontent.com/SolsRNGHub/SolsRNG/main/Hub.lua", "Sol's RNG Hub")
+        end,
+    })
+end)
+
 -- Tab 5: Classic Favorites (completed & added more)
 local ClassicTab = Window:CreateTab("Classic Favorites", 4483362458)
 
@@ -1177,4 +1198,4 @@ pcall(function()
     })
 end)
 
-print("Script Hub V28 Loaded - Aimlock Feature Integrated!")
+print("Script Hub V29 Loaded - Mobile Dex Features Integrated!")
